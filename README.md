@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # About
 
 Quickstart repo for a Maven managed dynamic web-application using Servlets and
@@ -15,3 +16,6 @@ Before deploying to a webserver create a `Resource` like in your webserver's con
               driverClassName="org.postgresql.Driver"
               url="jdbc:postgresql://localhost:5432/coupon_store"/>
 ```
+=======
+# CouponShop
+>>>>>>> 6a84c057e47f6309f8996c01ae3e2ce5503a73c5
