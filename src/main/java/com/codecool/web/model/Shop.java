@@ -5,14 +5,20 @@ import java.util.Objects;
 public final class Shop extends AbstractModel {
 
     private final String name;
+    private final int userid;
 
-    public Shop(int id, String name) {
+    public Shop(int id, String name, int userid) {
         super(id);
         this.name = name;
+        this.userid = userid;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getUserid() {
+        return userid;
     }
 
     @Override
