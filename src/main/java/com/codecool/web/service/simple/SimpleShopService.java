@@ -37,9 +37,9 @@ public final class SimpleShopService implements ShopService {
     }
 
     @Override
-    public Shop addShop(String name) throws SQLException, ServiceException {
+    public Shop addShop(String name, int userId) throws SQLException, ServiceException {
         try {
-            return shopDao.add(name);
+            return shopDao.add(name, userId);
         } catch (IllegalArgumentException ex) {
             throw new ServiceException(ex.getMessage());
         }
