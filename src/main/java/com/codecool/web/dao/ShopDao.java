@@ -13,5 +13,5 @@ public interface ShopDao {
 
     Shop findById(int id) throws SQLException;
 
-    Shop add(String name) throws SQLException;
+    Shop add(String name, int userId) throws SQLException;
 }
