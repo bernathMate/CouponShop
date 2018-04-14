@@ -3,6 +3,7 @@ package com.codecool.web.servlet;
 import com.codecool.web.dao.ShopDao;
 import com.codecool.web.dao.database.DatabaseShopDao;
 import com.codecool.web.model.Shop;
+import com.codecool.web.model.User;
 import com.codecool.web.service.ShopService;
 import com.codecool.web.service.exception.ServiceException;
 import com.codecool.web.service.simple.SimpleShopService;
@@ -36,13 +37,14 @@ public final class ShopsServlet extends AbstractServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        User user = (User) req.getSession().getAttribute("user");
         try (Connection connection = getConnection(req.getServletContext())) {
             ShopDao shopDao = new DatabaseShopDao(connection);
             ShopService shopService = new SimpleShopService(shopDao);
 
             String name = req.getParameter("name");
 
-            Shop shop = shopService.addShop(name);
+            Shop shop = shopService.addShop(name, user.getId());
 
             String info = String.format("Shop %s with id %s has been created", shop.getName(), shop.getId());
             req.setAttribute("info", info);
